@@ -26,28 +26,31 @@ function MainNavigation() {
               Home
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/create-company"
-              className={({ isActive }) =>
-                isActive ? classes.active : undefined
-              }
-            >
-              Create Company
-            </NavLink>
-          </li>
-          <li>
-            {isLoggedIn ? (
-              <NavLink
-                // to="/logout"
-                onClick={handleLogout}
-                className={({ isActive }) =>
-                  isActive ? classes.active : undefined
-                }
-              >
-                Logout
-              </NavLink>
-            ) : (
+
+          {isLoggedIn ? (
+            <>
+              <li>
+                <NavLink
+                  to="/create-company"
+                  className={({ isActive }) =>
+                    isActive ? classes.active : undefined
+                  }
+                >
+                  Create Company
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  // to="/logout"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <li>
               <NavLink
                 to="/login"
                 className={({ isActive }) =>
@@ -56,8 +59,8 @@ function MainNavigation() {
               >
                 Login
               </NavLink>
-            )}
-          </li>
+            </li>
+          )}
         </ul>
       </nav>
     </header>
